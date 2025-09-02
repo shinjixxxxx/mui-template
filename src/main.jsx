@@ -1,10 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+// main.jsx
+import * as React from 'react';
+import ReactDOM from 'react-dom/client';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { theme } from './MUITheme/MUITheme';
+import App from './App';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <ThemeProvider
+    theme={theme}
+    defaultMode="system"      // ← 起動時は OS の設定を見に行く
+    modeStorageKey={null}         // ← localStorage に保存しない
+    disableTransitionOnChange
+    noSsr
+  >
+    <CssBaseline enableColorScheme />
     <App />
-  </StrictMode>,
-)
+  </ThemeProvider>
+);
