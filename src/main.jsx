@@ -6,11 +6,14 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from './MUITheme/MUITheme';
 import App from './App';
 
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ThemeProvider
     theme={theme}
-    defaultMode="system"      // ← 起動時は OS の設定を見に行く
-    modeStorageKey={null}         // ← localStorage に保存しない
+    defaultMode="dark"      // ← 起動時は OS の設定を見に行く
+    modeStorageKey={null}         // ← localStorage に保存しない　うまくいかない？
+    storageManager={null}         // ← localStorage に保存しない　同期しない
     disableTransitionOnChange
     noSsr
   >

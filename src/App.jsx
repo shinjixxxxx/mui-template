@@ -32,8 +32,8 @@ import Switch from '@mui/material/Switch';
 import ThemeColorTester from './MUITheme/ThemeColorTester';
 
 export default function App() {
-  const { mode, setMode } = useColorScheme();
-  // const { mode, setMode, systemMode } = useColorScheme();
+  // const { mode, setMode } = useColorScheme();
+  const { mode, setMode, systemMode } = useColorScheme();
 
   const [form, setForm] = React.useState({
     name: '',
@@ -73,12 +73,18 @@ export default function App() {
         <Typography variant="h5" sx={{ fontWeight: 700 }}>
           MUI 基本コンポーネント サンプル
         </Typography>
+
+
+
+        {/* カラーモード変更ボタン */}
         <IconButton
           onClick={() => setMode(mode === 'dark' ? 'light' : 'dark')}
           color="primary"
         >
           {mode === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}
         </IconButton>
+
+
       </Box>
 
       {/* Buttons セクション */}
