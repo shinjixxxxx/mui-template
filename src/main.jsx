@@ -17,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     storageManager={null}       // ← localStorage に保存しない　同期しない ○
     // storageManager={null} 「保存しない・同期もしない」 タブごとに完全に独立して扱える
     // disableTransitionOnChange
-    noSsr
+    NoSsr
   >
     <CssBaseline enableColorScheme />
     <App />

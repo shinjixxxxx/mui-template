@@ -33,8 +33,11 @@ import ThemeColorTester from './MUITheme/ThemeColorTester';
 
 export default function App() {
   // const { mode, setMode } = useColorScheme();
-  const { mode, setMode, systemMode } = useColorScheme();
-
+  const { mode, setMode } = useColorScheme();
+  console.log(mode);
+  if( mode === "system") { // system の場合強制的に light か dark にセット
+    setMode (window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light")
+  }
   const [form, setForm] = React.useState({
     name: '',
     email: '',
