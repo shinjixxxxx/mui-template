@@ -115,6 +115,7 @@ export default function App() {
             </Button>
           </Stack>
         </Card>
+        
         <Card>
           <Stack direction="row" spacing={2} useFlexGap flexWrap="wrap" >
             <Button variant="contained">Contained</Button>
@@ -191,7 +192,7 @@ export default function App() {
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate>
           <Grid container spacing={2} sx={{width:"100%"}}>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <TextField
                 fullWidth
                 required
@@ -201,7 +202,7 @@ export default function App() {
                 helperText="必須項目です"
               />
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <TextField
                 fullWidth
                 required
@@ -212,7 +213,7 @@ export default function App() {
               />
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <FormControl fullWidth>
                 <InputLabel id="plan-label">プラン</InputLabel>
                 <Select
@@ -228,7 +229,7 @@ export default function App() {
               </FormControl>
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <FormControl component="fieldset">
                 <Typography variant="subtitle2" sx={{ mb: 1 }}>
                   性別
@@ -263,7 +264,7 @@ export default function App() {
 
           <Grid container sx={{width:"100%"}} xl={12} xs={12} sm={12} md={12}>
 
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <FormControlLabel
                 control={
                   <Checkbox
@@ -275,7 +276,7 @@ export default function App() {
               />
             </Grid>
 
-            <Grid item xs={12} md={6}>
+            <Grid xs={12} md={6}>
               <FormControlLabel
                 control={
                   <Switch
@@ -287,7 +288,7 @@ export default function App() {
               />
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid xs={12}>
               <Stack direction="row" spacing={2}>
 
                 <Button type="submit" variant="contained">
