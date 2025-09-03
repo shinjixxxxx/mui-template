@@ -1,5 +1,4 @@
-import React from 'react'
-import { WAKU } from '../MUITheme/MUITheme'
+import { WAKU } from './MUIStyleWaku'
 import { Box } from '@mui/material'
 
 const ThemeColorTester = () => {

@@ -24,7 +24,7 @@ export default defineConfig({
         // secure: false,
         rewrite: (path) => path.replace(
           /^\/api/,
-          '/exp01/12.%E7%94%BB%E5%83%8F%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89' // ← URLエンコード済み
+          '/exp01/api/' // ← URLエンコード済み
         ),
       },
     },

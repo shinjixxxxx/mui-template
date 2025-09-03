@@ -29,7 +29,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import Switch from '@mui/material/Switch';
 
-import ThemeColorTester from './MUITheme/ThemeColorTester';
+import ThemeColorTester from './MUITheme/MUIThemeColorTester';
 
 export default function App() {
   // const { mode, setMode } = useColorScheme();
