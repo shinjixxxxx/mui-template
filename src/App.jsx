@@ -5,7 +5,10 @@ import { useColorScheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+
+// GRID2 //
 import Grid from '@mui/material/Grid';
+
 import Stack from '@mui/material/Stack';
 
 import Typography from '@mui/material/Typography';
@@ -20,6 +23,7 @@ import CardActions from '@mui/material/CardActions';
 
 import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import InputLabel from '@mui/material/InputLabel';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
@@ -155,7 +159,6 @@ export default function App() {
         </Card>
       </Paper>
 
-
       {/* Grid + Card セクション 01 */}
       <Box
         sx={{
@@ -202,15 +205,16 @@ export default function App() {
 
 
 
-
       {/* Form フォーム セクション */}
       <Paper className='border' sx={{ p: 2, mb: 3 }}>
         <Typography variant="h6" sx={{ mb: 2 }}>
           Form
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate>
-          <Grid container spacing={2} sx={{ width: "100%" }}>
-            <Grid xs={12} md={6}>
+
+        <Box component="form" onSubmit={handleSubmit} className='_border' >
+
+          <Grid container spacing={2} sx={{ width: "100%" }} className='_border'>
+            <Grid size={{ xs: 12, md: 4 }}>
               <TextField
                 fullWidth
                 required
@@ -220,7 +224,7 @@ export default function App() {
                 helperText="必須項目です"
               />
             </Grid>
-            <Grid xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 3 }}>
               <TextField
                 fullWidth
                 required
@@ -231,7 +235,7 @@ export default function App() {
               />
             </Grid>
 
-            <Grid xs={12} md={6}>
+            <Grid size={{ xs: 12, md: 2 }} >
               <FormControl fullWidth>
                 <InputLabel id="plan-label">プラン</InputLabel>
                 <Select
@@ -247,42 +251,43 @@ export default function App() {
               </FormControl>
             </Grid>
 
-            <Grid xs={12} md={6}>
-              <FormControl component="fieldset">
-                <Typography variant="subtitle2" sx={{ mb: 1 }}>
-                  性別
-                </Typography>
-                <RadioGroup
-                  row
-                  value={form.gender}
-                  onChange={handleChange('gender')}
-                >
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    label="男性"
-                  />
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="女性"
-                  />
-                  <FormControlLabel
-                    value="other"
-                    control={<Radio />}
-                    label="その他"
-                  />
-                </RadioGroup>
-              </FormControl>
-            </Grid>
+
+
           </Grid>
 
 
+          <Grid spacing={2} container sx={{ width: "100%", mt: 2 }} >
 
+            <Grid size={{ xs: 6, md: 4 }}>
+              <Stack direction="row" alignItems="center" spacing={2} flexWrap="wrap">
+                <FormLabel id="gender-label" sx={{ whiteSpace: 'nowrap' }}>
+                  性別      </FormLabel>
 
-          <Grid container sx={{ width: "100%" }} xl={12} xs={12} sm={12} md={12}>
+                  <RadioGroup
+                    row
+                    value={form.gender}
+                    onChange={handleChange('gender')}
+                  >
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio />}
+                      label="男性"
+                    />
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio />}
+                      label="女性"
+                    />
+                    <FormControlLabel
+                      value="other"
+                      control={<Radio />}
+                      label="その他"
+                    />
+                  </RadioGroup>
+              </Stack>
+            </Grid>
 
-            <Grid xs={12} md={6}>
+            <Grid size={{ xs: 6, md: 3 }}>
               <FormControlLabel
                 control={
                   <Checkbox
@@ -294,7 +299,7 @@ export default function App() {
               />
             </Grid>
 
-            <Grid xs={12} md={6}>
+            <Grid size={{ xs: 6, md: 3 }}>
               <FormControlLabel
                 control={
                   <Switch
@@ -305,32 +310,39 @@ export default function App() {
                 label="ニュースレターを受け取る"
               />
             </Grid>
+          </Grid>
 
-            <Grid xs={12}>
-              <Stack direction="row" spacing={2}>
 
-                <Button type="submit" variant="contained">
-                  送信
-                </Button>
-                <Button
-                  type="button"
-                  variant="outlined"
-                  onClick={() =>
-                    setForm({
-                      name: '',
-                      email: '',
-                      plan: 'free',
-                      agree: false,
-                      gender: 'other',
-                      newsletter: true,
-                    })
-                  }
-                >
-                  リセット
-                </Button>
-              </Stack>
+          <Grid size={{ xs: 12, md: 12 }} container
+            sx={{
+              justifyContent: 'space-between',
+            }}
+          >
+            <Grid size={{ xs: 2, md: 2 }}></Grid>
 
-            </Grid>
+            <Stack direction="row" spacing={2}>
+
+              <Button type="submit" variant="contained">
+                送信
+              </Button>
+              <Button
+                type="button"
+                variant="outlined"
+                onClick={() =>
+                  setForm({
+                    name: '',
+                    email: '',
+                    plan: 'free',
+                    agree: false,
+                    gender: 'other',
+                    newsletter: true,
+                  })
+                }
+              >
+                リセット
+              </Button>
+            </Stack>
+
           </Grid>
 
 
