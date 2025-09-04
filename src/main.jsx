@@ -5,7 +5,6 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { theme } from './MUITheme/MUITheme';
 import App from './App';
-import { NoSsr } from '@mui/material';
 
 
 
@@ -17,7 +16,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     storageManager={null}       // ← localStorage に保存しない　同期しない ○
     // storageManager={null} 「保存しない・同期もしない」 タブごとに完全に独立して扱える
     // disableTransitionOnChange
-    NoSsr
   >
     <CssBaseline enableColorScheme />
     <App />

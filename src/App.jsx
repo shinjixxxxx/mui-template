@@ -32,12 +32,19 @@ import Switch from '@mui/material/Switch';
 import ThemeColorTester from './MUITheme/MUIThemeColorTester';
 
 export default function App() {
-  // const { mode, setMode } = useColorScheme();
-  const { mode, setMode } = useColorScheme();
-  console.log(mode);
-  if( mode === "system") { // system の場合強制的に light か dark にセット
-    setMode (window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light")
-  }
+  const { mode, setMode, systemMode } = useColorScheme();
+  console.log("mode:", mode);
+  console.log("systemMode:", systemMode);
+
+
+  // 初回マウント時のみ OS 設定を読んで固定化
+  React.useEffect(() => {
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    setMode(mql.matches ? 'dark' : 'light');
+  }, []); // ← 空配列で render 中更新を避ける
+  console.log("mode:", mode);
+
+  // フォーム用
   const [form, setForm] = React.useState({
     name: '',
     email: '',
@@ -62,7 +69,7 @@ export default function App() {
   if (!mode) return null; // 初期化中のチラつき回避（任意）
 
   return (
-    <Container maxWidth="xl" sx={{ py: 3 ,margin:"0 auto"}}>
+    <Container maxWidth="xl" sx={{ py: 3, margin: "0 auto" }}>
       <ThemeColorTester />
       {/* ヘッダー */}
       <Box
@@ -90,12 +97,20 @@ export default function App() {
 
       </Box>
 
+
+
+
       {/* Buttons セクション */}
-      <Paper sx={{ p: 2, mb: 3 }} className='border'>Paper
+      <Paper sx={{ p: 2, mb: 3 }} spacing={1} className='border'>
+
+        Paper
         <Typography variant="h6" sx={{ mb: 2 }}>
           Buttons
         </Typography>
-        <Card>
+
+
+        {/* ボタン セクション 01 spacing={1} */}
+        <Card sx={{ mb: 2 }}>
           <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
             <Button variant="contained" color="secondary">Contained</Button>
             <Button variant="outlined" color="secondary">
@@ -115,7 +130,9 @@ export default function App() {
             </Button>
           </Stack>
         </Card>
-        
+
+
+        {/* ボタン セクション 02 spacing={2} */}
         <Card>
           <Stack direction="row" spacing={2} useFlexGap flexWrap="wrap" >
             <Button variant="contained">Contained</Button>
@@ -139,7 +156,7 @@ export default function App() {
       </Paper>
 
 
-      {/* Grid + Card セクション */}
+      {/* Grid + Card セクション 01 */}
       <Box
         sx={{
           display: 'grid',
@@ -160,6 +177,7 @@ export default function App() {
         ))}
       </Box>
 
+      {/* Grid + Card セクション 02 */}
       <Paper className='border'
         sx={{
           padding: "20px !important",
@@ -191,7 +209,7 @@ export default function App() {
           Form
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate>
-          <Grid container spacing={2} sx={{width:"100%"}}>
+          <Grid container spacing={2} sx={{ width: "100%" }}>
             <Grid xs={12} md={6}>
               <TextField
                 fullWidth
@@ -262,7 +280,7 @@ export default function App() {
 
 
 
-          <Grid container sx={{width:"100%"}} xl={12} xs={12} sm={12} md={12}>
+          <Grid container sx={{ width: "100%" }} xl={12} xs={12} sm={12} md={12}>
 
             <Grid xs={12} md={6}>
               <FormControlLabel
