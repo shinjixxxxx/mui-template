@@ -16,6 +16,8 @@ export const theme = createTheme({
         primary: { main: '#21869c' },
         secondary: { main: '#009688' },
         background: { default: grey[50], paper: '#fff' },
+        text: { primary: grey[20], secondary: grey[20] },
+        divider: 'rgba(70, 90, 101, 0.25)',
       },
     },
     dark: {
